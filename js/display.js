@@ -26,7 +26,7 @@ class Display {
             for (let y = 0; y < this.game.grid.tiles[0].length; y++) {
                 for (let z = 0; z < this.game.grid.tiles[0][0].length; z++) {
                     if (this.game.grid.tiles[x][y][z].id !== ' ') {
-                        var loader = new THREE.TextureLoader().load("../img/blocs/" + this.game.grid.tiles[x][y][z].id + ".png");
+                        var loader = new THREE.TextureLoader().load("img/blocs/" + this.game.grid.tiles[x][y][z].id + ".png");
                         loader.magFilter = THREE.NearestFilter;
                         var material = new THREE.MeshLambertMaterial({
                             map: loader
@@ -41,7 +41,7 @@ class Display {
             }
         }
 
-        var loader2 = new THREE.TextureLoader().load("../img/cursor/cursor.png");
+        var loader2 = new THREE.TextureLoader().load("img/cursor/cursor.png");
         this.annie = new TextureAnimator( loader2, 4, 1, 3, 150 );
         loader2.magFilter = THREE.NearestFilter;
         var plane = new THREE.PlaneGeometry(32, 32);
@@ -56,7 +56,7 @@ class Display {
         this.renderer = new THREE.WebGLRenderer();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.gammaInput = true;
         this.renderer.gammaOutput = true;
         document.body.appendChild(this.renderer.domElement);
